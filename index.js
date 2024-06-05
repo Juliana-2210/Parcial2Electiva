@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const playerRoutes = require('./routes/routes-rincon');
+const teamRoutes = require('./routes/routes-teams');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -17,6 +18,7 @@ mongoose.connect("mongodb+srv://jairouptc:nyxmeR-zusjoz-8zubda@cluster0.9lfyrk5.
 app.use(express.json());
 
 app.use('/', playerRoutes);
+app.use('/teams', teamRoutes);
 
 app.listen(PORT, () => {
     console.log(`Servidor corriendo en el puerto ${PORT}`);

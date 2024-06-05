@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const Team = require('../models/teamModel');
 
-
 router.get('/', async (req, res) => {
   try {
     const teams = await Team.find();
@@ -24,5 +23,6 @@ router.get('/:id', async (req, res) => {
     return res.status(500).json({ message: err.message });
   }
 });
+
 
 module.exports = router;
